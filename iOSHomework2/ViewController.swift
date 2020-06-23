@@ -51,7 +51,7 @@ class ViewController: UIViewController {
         
         // MARK: -  5️⃣ functionCall داخل المتغير  secretNameEmoji قم باستدعاء الدالة
         
-        var functionCall = secretNameEmoji(membarNameArray: membersNamesArray)
+        var functionCall = secretNameEmoji(memberNameArray: membersNamesArray)
         
         // MARK: -   النهاية
         
@@ -82,20 +82,23 @@ class ViewController: UIViewController {
     
     
     // MARK: - 3️⃣ تحت هذا الخط secretNameEmoji قم بكتابة الداله
-    func secretNameEmoji(membarNameArray : [String]) -> String {
-        var firstletters: [String] = []
-        for i in 0..<membarNameArray.count{
-        firstletters.append(String(membarNameArray[i].prefix(1)))
-        }
+    var emojidicionary = ["A":"🥰", "B":"😂"]
+    func secretNameEmoji(memberNameArray : [String]) -> String {
+ var letters = secretNameLetter(memberNameArray: memberNameArray)
+ var emojiOutput = ""
+    for letter in letters{
+        emojiOutput += emojidicionary["\(letter.uppercased())"] ?? ""
+     
         
-        print(firstletters.joined())
-        membersNamesArray.removeAll()
-        return firstletters.joined()
+    }
+        return emojiOutput
+        
     }
     
     // MARK: -   النهاية
     
     
+  
     
 }
 
